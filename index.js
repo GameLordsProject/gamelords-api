@@ -15,6 +15,6 @@ server.use(rules);
 
 server.use(jsonServerAuth);
 server.use(router);
-server.listen(3000, () => {
-  console.log("Running on port 3000");
-});
+server.listen(process.env.PORT || 3000, () =>
+  console.log("gamelords running on port " + process.env.PORT),
+);

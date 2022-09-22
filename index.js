@@ -13,7 +13,6 @@ const rules = jsonServerAuth.rewriter({
 
 server.use(
   jsonServer.rewriter({
-    "/characters/:id": "/characters?name=:id",
     "/users/:email": "/users?email=:email",
     "/users/:password": "/users?password=:password",
   }),
@@ -23,6 +22,6 @@ server.use(rules);
 
 server.use(jsonServerAuth);
 server.use(router);
-server.listen(process.env.PORT || 3000, () =>
+server.listen(process.env.PORT || 8000, () =>
   console.log("gamelords running on port " + process.env.PORT),
 );

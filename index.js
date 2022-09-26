@@ -6,7 +6,6 @@ const middlewares = jsonServer.defaults();
 
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
-
 const rules = jsonServerAuth.rewriter({
   users: 600,
 });
@@ -20,8 +19,9 @@ server.use(
 
 server.use(rules);
 
+server.db = router.db;
 server.use(jsonServerAuth);
 server.use(router);
-server.listen(process.env.PORT || 8000, () =>
+server.listen(8000, () =>
   console.log("gamelords running on port " + process.env.PORT),
 );

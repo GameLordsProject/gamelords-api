@@ -22,6 +22,6 @@ server.use(rules);
 server.db = router.db;
 server.use(jsonServerAuth);
 server.use(router);
-server.listen(8000, () =>
+server.listen(process.env.PORT || 8000, () =>
   console.log("gamelords running on port " + process.env.PORT),
 );
